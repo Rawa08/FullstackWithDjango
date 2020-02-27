@@ -17,8 +17,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!-- Custom styles for this template -->
 	<link rel="stylesheet" href="{% static 'css/shop-homepage.css' %}">
-	<!--My js-->
-	
+	<!--My style and script-->
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
 	<script src="{% static 'js/events.js' %}"></script>
 
 
@@ -109,27 +109,46 @@
                 <h4 class="card-title">
                   <a href="#">{{ product.name }}</a>
                 </h4>
-                <h6 class="card-title">
-                  {{ product.volume }}ml
-                </h6>
+                
                 <h5>{{ product.price }}</h5>
-                <p class="card-text">{{ product.description }}</p>
+                <p class="card-text">{{ product.description|truncatewords:"2"  }}</p>
               </div>
               <div class="card-footer">
+               <h6 class="d-inline">
+                  {{ product.volume }}ml
+                </h6>
+                <a href="/" class="btn btn-sm btn-primary">välj</a>
                 {% if product.gender == 'U' %}
-                <img class="" src="{{ MEDIA_URL }}images/unisex.png" alt="">
+                <img class="gender-icon" src="{{ MEDIA_URL }}images/unisex.png" alt="">
                 {% elif product.gender == 'F'%}
-                <img class="" src="{{ MEDIA_URL }}images/female.png" alt="">
+                <img class="gender-icon" src="{{ MEDIA_URL }}images/female.png" alt="">
                  {% else %}
-                <img class="" src="{{ MEDIA_URL }}images/male.png" alt="">
+                <img class="gender-icon" src="{{ MEDIA_URL }}images/male.png" alt="">
 
                 {%endif%}
+               
               </div>
+               <h2>{{ comments.count }} comments</h2>
+
+        {% for comment in comments %}
+        <div class="comments" style="padding: 10px;">
+          <p class="font-weight-bold">
+            {{ comment.name }}
+            <span class=" text-muted font-weight-normal">
+              {{ comment.created_on }}
+            </span>
+          </p>
+          {{ comment.body | linebreaks }}
+        </div>
+        {% endfor %}
             </div>
+           
           </div>
+          
+          
 {% endfor %}
          
-
+ {% block content_Comment %} {% endblock content_Comment %}
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>

@@ -18,3 +18,19 @@ class Perfume(models.Model):
 
     def __str__(self):
         return self.name
+
+
+#https://djangocentral.com/creating-comments-system-with-django/
+class CommentPerfume(models.Model):
+    product = models.ForeignKey(Perfume,on_delete=models.CASCADE,related_name='review')
+    name = models.CharField(max_length=80)
+    body = models.TextField()
+    score = models.IntegerField(range(1, 5))
+    created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return 'Comment {} by {}'.format(self.body, self.name)
