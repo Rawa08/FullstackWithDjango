@@ -61,11 +61,16 @@
 
 			<div class="col-lg-3">
 
-				<h1 class="my-4">My Fragrance</h1>
+				<h3 class="my-4">Select by category</h3>
 				<div class="list-group">
 					<a href="#" class="list-group-item">Unisex</a>
 					<a href="#" class="list-group-item">For Her</a>
 					<a href="#" class="list-group-item">For Him</a>
+                    <form action="{% url 'do_search' %}" method="get">
+                <input class="form-control mt-4 form-control-lg" type="text" name="do_search" placeholder="find your fragrance">
+                <button type="search" class="mt-1 btn-sm btn-sm btn-dark">Search</button>
+            </form>
+
 				</div>
 
 			</div>

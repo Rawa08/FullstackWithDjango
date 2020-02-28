@@ -6,7 +6,6 @@ from products.models import Perfume
 
 # Create your views here.
 
-
 def post_detail(request, slug):
     perfumes = Perfume.objects.all()
     template_name = 'products.html'
