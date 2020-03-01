@@ -18,19 +18,15 @@ from django.contrib import admin
 
 from django.views import static
 from .settings import MEDIA_ROOT
-from products import urls as urls_products
+
 
 from home.views import home_page
 from search import urls as urls_search
 
 
-
-
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home_page, name='home_page'),
-   
-    url(r'^products/',include(urls_products)),
     url(r'^search/',include(urls_search)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]
