@@ -9,7 +9,7 @@ class Comment(models.Model):
     Comment = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
-    score = models.CharField(choices=scoreChoice,max_length=1, default=5)
+    
 
     class Meta:
         ordering = ['created_on']

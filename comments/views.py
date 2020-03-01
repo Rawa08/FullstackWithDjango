@@ -1,13 +1,15 @@
 from django.shortcuts import render, get_object_or_404
-
 from .models import Perfume
 from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
+
 
 def post_detail(request, pk):
     template_name = 'product_info.html'
     
     product = get_object_or_404(Perfume, pk=pk)
+
     comments = product.comments.filter(active=True)
     new_comment = None
     # Comment posted

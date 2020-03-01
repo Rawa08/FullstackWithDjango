@@ -26,6 +26,7 @@
         <h1>{{ product.name }} </h1>
 <p>{{product.description}}
 
+<div class="card h-100">
  <form method="post" style="margin-top: 1.3em;">
           {{ comment_form | as_bootstrap}}
           {% csrf_token %}
