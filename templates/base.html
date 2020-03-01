@@ -29,7 +29,7 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="#">My Fragrance</a>
+			<a class="navbar-brand" href="/">My Fragrance</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -63,10 +63,11 @@
 
 				<h3 class="my-4">Select by category</h3>
 				<div class="list-group">
-					<a href="#" class="list-group-item">Unisex</a>
-					<a href="#" class="list-group-item">For Her</a>
-					<a href="#" class="list-group-item">For Him</a>
-                    <form action="{% url 'do_search' %}" method="get">
+                 <a href="{% url 'do_search_F'%}" class="list-group-item">For Her</a>
+					<a href="{% url 'do_search_M'%}"class="list-group-item">For Him</a>
+					<a href="{% url 'do_search_U'%}"  class="list-group-item">Unisex</a>
+                    <a href="/"  class="list-group-item">Show all</a>
+                    <form action="{% url 'do_search'%}" method="get">
                 <input class="form-control mt-4 form-control-lg" type="text" name="do_search" placeholder="find your fragrance">
                 <button type="search" class="mt-1 btn-sm btn-sm btn-dark">Search</button>
             </form>
