@@ -1,4 +1,75 @@
 {% extends 'base.html'%}
 {% block content %}
-test
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-lg-3">
+
+				<h3 class="my-4">Select by category</h3>
+				<div class="list-group">
+                 <a href="{% url 'do_search_F'%}" class="list-group-item">For Her</a>
+					<a href="{% url 'do_search_M'%}"class="list-group-item">For Him</a>
+					<a href="{% url 'do_search_U'%}"  class="list-group-item">Unisex</a>
+                    <a href="/"  class="list-group-item">Show all</a>
+                    <form action="{% url 'do_search'%}" method="get">
+                <input class="form-control mt-4 form-control-lg" type="text" name="do_search" placeholder="find your fragrance">
+                <button type="search" class="mt-1 btn-sm btn-sm btn-dark">Search</button>
+            </form>
+
+				</div>
+
+			</div>
+			<!-- /.col-lg-3 -->
+
+			<div class="col-lg-9">
+
+			
+							<div class="row mt-4">
+								{% for product in perfumes reversed %}
+								<div class="col-lg-4 col-md-6 mb-4 anup">
+									<div class="card h-100">
+									
+										<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
+										<div class="card-body">
+											<h4 class="card-title">
+												<a href="#"><h6>{{ product.name }}</h6></a>
+											</h4>
+
+											<h5>{{ product.price }}</h5>
+											<p class="card-text">{{ product.description|truncatewords:"2"  }}</p>
+										</div>
+										<div class="card-footer">
+											<h6 class="d-inline">
+												{{ product.volume }}ml
+											</h6>
+
+											{% if product.gender == 'U' %}
+											<img class="gender-icon" src="{{ MEDIA_URL }}images/unisex.png" alt="">
+                {% elif product.gender == 'F'%}
+											<img class="gender-icon" src="{{ MEDIA_URL }}images/female.png" alt="">
+                 {% else %}
+											<img class="gender-icon" src="{{ MEDIA_URL }}images/male.png" alt="">
+
+                {%endif%}
+											
+										</div>
+<div class="card-body">
+<a href="/" class=" card-link">Add to cart</a>
+											<a href="/" class="card-link">More info..</a></div>
+
+									</div>
+
+								</div>
+
+
+								{% endfor %}
+
+							</div>
+							<!-- /.row -->
+						</div>
+						<!-- /.col-lg-9 -->
+					</div>
+					<!-- /.row -->
+				</div>
 {% endblock %}
