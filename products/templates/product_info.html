@@ -1,0 +1,73 @@
+{% extends 'index.html' %}
+{% load bootstrap_tags%}
+{% block content %}
+<div class="row m-2">
+								
+								<div class="col-lg-4 col-md-6 mb-4 anup">
+									<div class="card h-100">
+									<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
+										<div class="card-body">
+											<h4 class="card-title">
+											<h6>{{ product.name }} by {{ product.brand }}</h6>
+											</h4><h5>{{ product.price }}</h5>
+                                            <h6 class="d-inline">
+												{{ product.volume }}ml
+											</h6>
+										{% if product.gender == 'U' %}
+											<img class="gender-icon" src="{{ MEDIA_URL }}images/unisex.png" alt="">
+                {% elif product.gender == 'F'%}
+											<img class="gender-icon" src="{{ MEDIA_URL }}images/female.png" alt="">
+                 {% else %}
+											<img class="gender-icon" src="{{ MEDIA_URL }}images/male.png" alt="">
+
+                {%endif%}
+</div></div></div>
+        <div class="col-lg-3 col-md-6 mb-4">
+        <h1>{{ product.name }} </h1>
+<p>{{product.description}}
+
+ <form method="post" style="margin-top: 1.3em;">
+          {{ comment_form | as_bootstrap}}
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary  btn-sm">Submit</button>
+        </form>
+     
+        </div>
+        
+          <div class="col-lg-3 col-md-6 mb-4">
+
+          {% for comment in comments %}
+       
+          <p class="font-weight-bold">
+          <div class="mt-2">
+            {{ comment.name }}
+            <span class=" text-muted font-weight-normal">
+              {{ comment.created_on }}
+            </span>
+          </p>
+          {{ comment.Comment }}
+          
+        </div>
+        
+        </div>
+
+
+
+
+
+
+
+
+
+
+        
+        {% endfor %}
+       
+        </div>
+        
+        
+        
+        
+        </div>
+{% endblock content %}
+
