@@ -49,10 +49,27 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#">Contact</a>
 					</li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+						<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+					</li>
+                    {% else %}
+                    <li class="nav-item">
+						<a class="nav-link" href="{% url 'login' %}">LogIn</a>
+					</li>
+                    {% endif %}
 				</ul>
 			</div>
 		</div>
 	</nav>
+    {% if messages %}
+<hr>
+{% for message in messages %}
+<div class="toast-body">{{ message }}</div>
+{% endfor %}
+<hr>
+{% endif %}
+
 	{% block content%}
 	<!-- Page Content -->
 
