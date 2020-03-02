@@ -1,56 +1,73 @@
 {% extends 'index.html' %}
+{% load static from staticfiles %}
 {% load bootstrap_tags%}
 {% block content %}
 <div class="row m-2">
-								
-								<div class="col-lg-4 col-md-6 mb-4 anup">
-									<div class="card h-100">
-									<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
-										<div class="card-body">
-											<h4 class="card-title">
-											<h6>{{ product.name }} by {{ product.brand }}</h6>
-											</h4><h5>{{ product.price }}</h5>
-                                            <h6 class="d-inline">
-												{{ product.volume }}ml
-											</h6>
-										{% if product.gender == 'U' %}
-											<img class="gender-icon" src="{{ MEDIA_URL }}images/unisex.png" alt="">
+	<div class="col-lg-3 col-md-3 mb-4">
+		<div class="card h-100">
+			<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
+			<div class="card-body">
+				<h4 class="card-title">
+					<h6>{{ product.name }} by {{ product.brand }}</h6>
+				</h4>
+
+				{% if product.gender == 'U' %}
+				<img class="gender-icon" src="{{ MEDIA_URL }}images/unisex.png" alt="">
                 {% elif product.gender == 'F'%}
-											<img class="gender-icon" src="{{ MEDIA_URL }}images/female.png" alt="">
+				<img class="gender-icon" src="{{ MEDIA_URL }}images/female.png" alt="">
                  {% else %}
-											<img class="gender-icon" src="{{ MEDIA_URL }}images/male.png" alt="">
+				<img class="gender-icon" src="{{ MEDIA_URL }}images/male.png" alt="">
 
                 {%endif%}
-</div></div></div>
-        <div class="col-lg-3 col-md-6 mb-4">
-        <h1>{{ product.name }} </h1>
-<p>{{product.description}}
-
-<div class="card h-100">
- <form method="post" style="margin-top: 1.3em;">
-          {{ comment_form | as_bootstrap}}
-          {% csrf_token %}
-          <button type="submit" class="btn btn-primary  btn-sm">Submit</button>
-        </form>
-     
-        </div>
-        
-          <div class="col-lg-3 col-md-6 mb-4">
-
-          {% for comment in comments %}
-       
-          <p class="font-weight-bold">
-          <div class="mt-2">
-            {{ comment.name }}
-            <span class=" text-muted font-weight-normal">
+                
+</div>
+			</div>
+		</div>
+		<div class="col-lg-8 col-md-8 mb-4">
+			<div class=" h-100">
+				<p class="mt-5">{{product.description}}</p>
+				<h5>{{ product.price }} EUR</h5>
+				<h6 class="d-inline">
+					{{ product.volume }} ml
+				</h6>
+                <form method="post" action="/">
+                    {% csrf_token %}
+                    <div class="input-group mt-1">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control col-2" placeholder="Quantity">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success ml-1" type="submit">Add to cart</button>
+                        </span>
+                    </div>
+                </form>
+			</div>
+		</div>
+	</div>
+<div class="row m-1"></div>
+    <div class="col-lg-12 col-md-12">
+    <h4 class="mb-2">What other think about {{ product.name }} </h4>
+			{%for comment in comments %}
+      
+			<h6 class="mt-1"><i class="fa fa-pull-left fa-user"></i> By: {{ comment.name }}</h6>
+			<p>Review: {{ comment.Comment}}</p>
+			<span class=" text-muted font-weight-normal">
               {{ comment.created_on }}
             </span>
-          </p>
-          {{ comment.Comment }}
-          
-        </div>
-        
-        </div>
+            <hr>
+			{% endfor %}
+		</div>
+	<div class="row mt-5 m-1">
+		<div class="col-lg-12 col-md-12">
+        <h3 id="show"> Write a review <i class="fa fa-edit"></i> </h3> 
+        <div class="col-4 review-box">
+			<form method="post">
+				{{ comment_form | as_bootstrap}}
+				{% csrf_token %}
+				<button type="submit" class="btn btn-success btn-sm">Submit</button>
+			</form>
+            </div>
+		</div>
+		
+	</div>
 
 
 
@@ -58,17 +75,4 @@
 
 
 
-
-
-
-        
-        {% endfor %}
-       
-        </div>
-        
-        
-        
-        
-        </div>
-{% endblock content %}
-
+	{% endblock content %}

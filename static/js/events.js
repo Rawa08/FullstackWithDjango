@@ -1,22 +1,6 @@
 $(document).ready(function () {
-/*    $("#s1").click(function () {
-        alert('1')
-    });
-    $("#s2").click(function () {
-        alert('2')
-    });
-    $("#s3").click(function () {
-        alert('3')
-    });
-    $("#s4").click(function () {
-        alert('4')
-    });
-    $("#s5").click(function () {
-        alert('5')
-    });
 
-*/
-        $(".anup").mouseenter(function () {
+        $(".anup").css('cursor','pointer').mouseenter(function () {
             $(this).animate({ "top": "-25px" }, 400)
            
         });
@@ -25,5 +9,8 @@ $(document).ready(function () {
             $(this).animate({ "top": "+0px" }, 400)
         });
 
-
+$(".review-box").css('display', 'none');
+$("#show").css('cursor','pointer').click(function(){
+  $(".review-box").show('easout');
+});
     });

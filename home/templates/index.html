@@ -29,7 +29,7 @@
 								{% for product in perfumes reversed %}
 								<div class="col-lg-4 col-md-6 mb-4 anup">
 									<div class="card h-100">
-									
+									<a href="{% url 'post_detail' product.id %}" class="card-link">
 										<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
 										<div class="card-body">
 											<h4 class="card-title">
@@ -53,10 +53,10 @@
 
                 {%endif%}
 											
-										</div>
+										</div></a>
 <div class="card-body">
-<a href="/" class=" card-link">Add to cart</a>
-											<a href="{% url 'post_detail' product.id %}" class="card-link">More info..</a></div>
+<a href="/" class="btn btn-success btn-sm card-link">Add to cart</a>
+											</div>
 
 									</div>
 

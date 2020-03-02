@@ -11,7 +11,7 @@
 	<meta name="author" content="">
 
 	<title>Shop Homepage - Start Bootstrap Template</title>
-
+	<link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -53,23 +53,23 @@
 			</div>
 		</div>
 	</nav>
-{% block content%}
+	{% block content%}
 	<!-- Page Content -->
 
 
-                {% endblock %}
-				<!-- /.container -->
-				<!-- Footer -->
-				<footer class="py-5 bg-dark">
-					<div class="container">
-						<p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-					</div>
-					<!-- /.container -->
-				</footer>
+	{% endblock %}
+	<!-- /.container -->
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+		</div>
+		<!-- /.container -->
+	</footer>
 
-				<!-- Bootstrap core JavaScript -->
-				<script src="vendor/jquery/jquery.min.js"></script>
-				<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+	<script src="{%static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
 
 </body>
 
