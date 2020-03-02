@@ -57,6 +57,9 @@
                     <li class="nav-item">
 						<a class="nav-link" href="{% url 'login' %}">LogIn</a>
 					</li>
+                    <li class="nav-item">
+						<a class="nav-link" href="{% url 'register' %}">Register</a>
+					</li>
                     {% endif %}
 				</ul>
 			</div>
@@ -65,7 +68,7 @@
     {% if messages %}
 <hr>
 {% for message in messages %}
-<div class="toast-body">{{ message }}</div>
+<div class="alert alert-primary" role="alert">{{ message }}</div>
 {% endfor %}
 <hr>
 {% endif %}
