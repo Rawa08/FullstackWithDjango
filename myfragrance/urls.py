@@ -24,6 +24,7 @@ from home.views import home_page
 from search import urls as urls_search
 from comments import urls as urls_comments
 from accounts import urls as urls_accounts
+from cart import urls as urls_cart
 
 
 urlpatterns = [
@@ -32,5 +33,6 @@ urlpatterns = [
     url(r'^search/',include(urls_search)),
     url(r'^comments/',include(urls_comments)),
     url(r'^accounts/',include(urls_accounts)),
+     url(r'^cart/', include(urls_cart)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]

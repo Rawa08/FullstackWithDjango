@@ -55,7 +55,15 @@
 											
 										</div></a>
 <div class="card-body">
-<a href="/" class="btn btn-success btn-sm card-link">Add to cart</a>
+ <form method="post" action="{% url 'add_product' product.id %}">
+                    {% csrf_token %}
+                    <div class="input-group mt-1">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control col-2" placeholder="Quantity" value="1">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success ml-1" type="submit">Add to cart</button>
+                        </span>
+                    </div>
+                </form>
 											</div>
 
 									</div>

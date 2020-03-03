@@ -30,7 +30,7 @@
 				<h6 class="d-inline">
 					{{ product.volume }} ml
 				</h6>
-                <form method="post" action="/">
+                <form method="post" action="{% url 'add_product' product.id %}">
                     {% csrf_token %}
                     <div class="input-group mt-1">
                         <input name="quantity" type="number" min="1" max="999" class="form-control col-2" placeholder="Quantity">
