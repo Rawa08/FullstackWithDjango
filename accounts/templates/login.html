@@ -1,8 +1,15 @@
 {% extends 'base.html'%}
+{% load bootstrap_tags %}
 {% block content %}
+<div class="container m-4">
+<div class="row">
+<div class="col-12">
 <form class="form-group" method="POST">
 {% csrf_token %}
-{{login_form }}
+{{login_form|as_bootstrap }}
 <button class="btn btn-success btn-sm" type="submit">Login</button>
-</form>
+</form></div></div>
+<div class="row">
+<p><a href="{% url 'password_reset' %}">Reset your Password</a></p></div></div>
+
 {% endblock %}
