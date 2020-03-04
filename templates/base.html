@@ -22,7 +22,8 @@
 	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
 	<script src="{% static 'js/my-script.js' %}"></script>
 
-
+{% block stripe_js%}
+{% endblock stripe_js%}
 </head>
 
 <body>
@@ -45,7 +46,13 @@
 						<a class="nav-link" href="#">About</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{% url 'my_cart' %}">Cart</a>
+                    
+						<a class="nav-link" href="{% url 'my_cart' %}">
+                           <i class="fa fa-shipping-cart"></i>Cart
+                            {% if product_count > 0 %}
+                            <label class="badge badge-success">{{ product_count }}</label>
+                            {% endif %}
+                        </a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">Contact</a>

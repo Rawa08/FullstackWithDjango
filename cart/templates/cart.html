@@ -11,9 +11,12 @@
 	</div>
     <div class="col-3 my-3"><p></div>
     <div class="col-3 my-1"></div>
-    <div class="col-3 my-3"><p>Total: {{ total }}
-		<a href="/" class="btn btn-success"
-			role="button">Checkout</a></p></div>
+    <div class="col-3 my-3">
+   
+    Total: {{ total }}
+    
+		<a href="{% url 'checkout' %}" class="btn btn-sm btn-success"
+			role="button"><i class="fa fa-shopping-basket"></i> Checkout</a></p></div>
 	</div>
     <hr>
 <div class="row">

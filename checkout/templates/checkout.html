@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+
+{% block stripe_js%}
+<script type="text/javascript" src="https://js.stripe.com/v2"></script>
+<script type="text/javascript">Stripe.publishableKey = '{{ publishable }}';</script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+
+{% endblock stripe_js%}
+{% block content %}
+<div class="row">
+    {% for item in cart_item %}
+    <div class="col-6 col-md-3 col-lg-2  my-2 ">
+    
+		<div class="card h-100">
+        <h5 class="m-1">Qty: 
+        {{item.quantity}}</h5>
+<img class="card-img-top" src="{{ MEDIA_URL }}{{ item.product.image }}" alt="">
+			<div class="card-body">
+				<h5>
+					{{ item.product.name }}
+				</h5>
+
+				<h5>{{ item.product.price }}</h5>
+				<small>{{ item.product.volume }}ml</small>
+				{% if item.product.gender == 'U' %}
+				<img class="gender-icon-cart" src="{{ MEDIA_URL }}images/unisex.png" alt="">
+                {% elif item.product.gender == 'F'%}
+				<img class="gender-icon-cart" src="{{ MEDIA_URL }}images/female.png" alt="">
+                 {% else %}
+				<img class="gender-icon-cart" src="{{ MEDIA_URL }}images/male.png" alt="">
+
+                {%endif%}
+</div>
+<div class="card-footer">
+<form class="form-inline" method="post" action="{% url 'adjust' item.id %}">
+{% csrf_token %}<div class="col-12">New Qty: <input name="quantity" type="number" min="0" max="999" class="form-control m-1" value="1">
+<button type="submit" class="btn btn-sm btn-success">Amend</button>
+</div></form>
+				</div>
+			</div>
+			<!---->
+		</div>
+    {% endfor %}
+</div>
+<div class="row">
+    
+</div>
+
+<form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+{% csrf_token %}
+    <legend>Payment Details</legend>
+<div id="credit-card-errors" style="display: none;">
+        <div id="alert-message block-message error" id="stripe-error-message"></div>
+    </div>
+<div class="row">
+    <div class="form-group col-md-6">
+        {{ customer | as_bootstrap }}
+    </div>
+
+    <div class="form-group col-md-6">
+        {{ payment | as_bootstrap }}
+        <input class=" btn btn-success" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+   
+    <p class="mt-2">Total: {{ total }}</p>
+    </div> </div>
+
+</form>
+
+{% endblock %}
