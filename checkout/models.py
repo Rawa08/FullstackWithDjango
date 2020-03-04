@@ -19,9 +19,9 @@ class Customer(models.Model):
 
 
 class OrderLineItem(models.Model):
-    orderd_by = models.ForeignKey(Customer, null=False)
-    orderd_product = models.ForeignKey(Perfume, null=False)   
+    order = models.ForeignKey(Customer, null=False)
+    product = models.ForeignKey(Perfume, null=False)   
     quantity = models.IntegerField(blank=False)     
 
     def __str__(self):
-        return "{0}-{1}@{2}".format(self.quantity, self.orderd_product.name, self.orderd_product.price)
+        return "{0}-{1}@{2}".format(self.quantity, self.order.name, self.product.price)

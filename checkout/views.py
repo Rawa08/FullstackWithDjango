@@ -1,24 +1,27 @@
 import os
-from django.shortcuts import render,  get_object_or_404, reverse, redirect
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import CustomerPaymentForm, CustomerShippingForm
-import stripe
-from django.utils import timezone
 from django.contrib import messages
-from products.models import Perfume
+from .forms import CustomerPaymentForm, CustomerShippingForm
 from .models import OrderLineItem
+from django.utils import timezone
+from products.models import Perfume
+import stripe
+
+
 # Create your views here.
 
-stripe.api_key = os.environ.get("StripeApiKey")
+stripe.api_key = os.environ.get("STRIPE_SECRET")
 
 
-@login_required
+@login_required()
 def checkout(request):
-    if request.method == 'POST':
-        customer = CustomerShippingForm(request.POST)
-        payment = CustomerPaymentForm(request.POST)
-        if customer.is_valid() and payment.is_valid():
-            order = customer.save(commit=False)
+    if request.method == "POST":
+        order_form = CustomerShippingForm(request.POST)
+        payment_form = CustomerPaymentForm(request.POST)
+
+        if order_form.is_valid() and payment_form.is_valid():
+            order = order_form.save(commit=False)
             order.date = timezone.now()
             order.save()
 
@@ -35,11 +38,15 @@ def checkout(request):
                 order_line_item.save()
 
             try:
-                customer = stripe.Charge.create(amount=int(
-                    total * 100), currency="EUR", description=request.user.email, card=CustomerPaymentForm.cleaned_data['stripe_id'])
+                customer = stripe.Charge.create(
+                    amount=int(total * 100),
+                    currency="EUR",
+                    description=request.user.email,
+                    card=payment_form.cleaned_data['stripe_id'],
+                )
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
-            
+
             if customer.paid:
                 messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}
@@ -47,10 +54,11 @@ def checkout(request):
             else:
                 messages.error(request, "Unable to take payment")
         else:
-            print(CustomerPaymentForm.errors)
-            messages.error(request, "We were unable to take a payment with that card!")
+            print(payment_form.errors)
+            messages.error(
+                request, "We were unable to take a payment with that card!")
     else:
-        payment = CustomerPaymentForm()
-        customer = CustomerShippingForm()
-    
-    return render(request, "checkout.html", {"customer": customer, "payment": payment, "publishable": os.environ.get("publishable")})
+        payment_form = CustomerPaymentForm()
+        order_form = CustomerShippingForm()
+
+    return render(request, "checkout.html", {'order_form': order_form, 'payment_form': payment_form, 'publishable': os.environ.get("STRIPE_PUBLISHABLE")})
