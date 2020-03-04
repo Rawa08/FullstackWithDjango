@@ -10,6 +10,10 @@
 <button class="btn btn-success btn-sm" type="submit">Login</button>
 </form></div></div>
 <div class="row">
-<p><a href="{% url 'password_reset' %}">Reset your Password</a></p></div></div>
+<p><a href="{% url 'password_reset' %}">Reset your password here</a></p>
+</div>
+<div class="row"><a class="nav-link btn btn-success btn-lg" href="{% url 'register' %}">New Customer?</a>
+</div></div>
+
 
 {% endblock %}
