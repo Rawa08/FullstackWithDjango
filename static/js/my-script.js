@@ -11,6 +11,6 @@ $(document).ready(function () {
 
 $(".review-box").css('display', 'none');
 $("#show").css('cursor','pointer').click(function(){
-  $(".review-box").show('easout');
+  $(".review-box").toggle(1500)
 });
     });

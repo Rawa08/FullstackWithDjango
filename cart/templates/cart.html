@@ -19,14 +19,17 @@
 <div class="row">
 
 	{% for item in cart_item %}
-	<div class="col-lg-3 col-md-6 my-2">
+	<div class="col-6 col-md-3 col-lg-2  my-2 anup">
+    
 		<div class="card h-100">
+        <h5 class="m-1">Qty: 
+        {{item.quantity}}</h5>
 
 			<img class="card-img-top" src="{{ MEDIA_URL }}{{ item.product.image }}" alt="">
 			<div class="card-body">
-				<h4 class="card-title">
-					{{ item.product.name }}</h6>
-				</h4>
+				<h5>
+					{{ item.product.name }}
+				</h5>
 
 				<h5>{{ item.product.price }}</h5>
 				<small>{{ item.product.volume }}ml</small>
@@ -41,14 +44,13 @@
 </div>
 
 				<div class="card-footer">
-                							<p>Qty: 
-        {{item.quantity}}</p>				
+                										
 					<form class="form-inline" method="post" action="{% url 'adjust' item.id %}">
 						{% csrf_token %}
 					
 							<div class="col-12">
 							
-								New Qty: <input name="quantity" type="number" min="0" max="999" class="form-control m-1">
+								New Qty: <input name="quantity" type="number" min="0" max="999" class="form-control m-1" value="1">
 								<button type="submit" class="btn btn-sm btn-success">Amend</button>
 							</div>
 						
