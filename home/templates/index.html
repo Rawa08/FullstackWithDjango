@@ -29,7 +29,7 @@
 			
 							<div class="row mt-4">
 								{% for product in perfumes reversed %}
-								<div class="col-lg-4 col-md-6 mb-4 anup">
+								<div class="col-6 col-md-4 col-lg-4 mb-4 anup">
 									<div class="card h-100">
 									<a href="{% url 'post_detail' product.id %}" class="card-link">
 										<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
