@@ -13,7 +13,7 @@ class Perfume(models.Model):
     volume = models.CharField(choices=volumeChoice, max_length=5)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     description = models.TextField()
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='images/product_image')
     created = models.DateField()
 
     def __str__(self):

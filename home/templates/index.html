@@ -8,9 +8,11 @@
 
 				<h3 class="my-4">Select by category</h3>
 				<div class="list-group">
-                 <a href="{% url 'do_search_F'%}" class="list-group-item">For Her</a>
-					<a href="{% url 'do_search_M'%}"class="list-group-item">For Him</a>
-					<a href="{% url 'do_search_U'%}"  class="list-group-item">Unisex</a>
+                 <a href="{% url 'do_search_F'%}" class="list-group-item">For Her <i class="fa fa-venus fa-2x"></i></a> 
+    
+    
+					<a href="{% url 'do_search_M'%}"class="list-group-item">For Him <i class="fa fa-mars fa-2x"></i></a>
+					<a href="{% url 'do_search_U'%}"  class="list-group-item">Unisex <i class="fa fa-transgender fa-2x"></i></a>
                     <a href="/"  class="list-group-item">Show all</a>
                     <form action="{% url 'do_search'%}" method="get">
                 <input class="form-control mt-4 form-control-lg" type="text" name="do_search" placeholder="find your fragrance">
@@ -45,11 +47,11 @@
 											</h6>
 
 											{% if product.gender == 'U' %}
-											<img class="gender-icon" src="{{ MEDIA_URL }}images/unisex.png" alt="">
+											<i class="fa fa-transgender fa-2x"></i>
                 {% elif product.gender == 'F'%}
-											<img class="gender-icon" src="{{ MEDIA_URL }}images/female.png" alt="">
+											<i class="fa fa-venus fa-2x"></i>
                  {% else %}
-											<img class="gender-icon" src="{{ MEDIA_URL }}images/male.png" alt="">
+											<i class="fa fa-mars fa-2x"></i>
 
                 {%endif%}
 											

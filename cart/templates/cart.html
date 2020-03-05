@@ -23,12 +23,12 @@
 
 				<h5>{{ item.product.price }}</h5>
 				<small>{{ item.product.volume }}ml</small>
-				{% if item.product.gender == 'U' %}
-				<img class="gender-icon-cart" src="{{ MEDIA_URL }}images/unisex.png" alt="">
-                {% elif item.product.gender == 'F'%}
-				<img class="gender-icon-cart" src="{{ MEDIA_URL }}images/female.png" alt="">
+									{% if product.gender == 'U' %}
+											<i class="fa fa-transgender fa-2x"></i>
+                {% elif product.gender == 'F'%}
+											<i class="fa fa-venus fa-2x"></i>
                  {% else %}
-				<img class="gender-icon-cart" src="{{ MEDIA_URL }}images/male.png" alt="">
+											<i class="fa fa-mars fa-2x"></i>
 
                 {%endif%}
 </div>
@@ -41,7 +41,7 @@
 							<div class="col-12">
 							
 								New Qty: <input name="quantity" type="number" min="0" max="999" class="form-control m-1" value="1">
-								<button type="submit" class="btn btn-sm btn-success">Amend</button>
+								<button type="submit" class="btn btn-sm btn-success">Amend <i class="fa fa-retweet"></i></button>
 							</div>
 						
 						

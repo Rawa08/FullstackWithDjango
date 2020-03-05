@@ -7,7 +7,7 @@
 <form class="form-group" method="POST">
 {% csrf_token %}
 {{login_form|as_bootstrap }}
-<button class="btn btn-success btn-sm" type="submit">Login</button>
+<button class="btn btn-success btn-sm" type="submit"><i class="fa fa-sign-in"></i> Login</button>
 </form></div></div>
 <div class="row">
 <p><a href="{% url 'password_reset' %}">Reset your password here</a></p>
