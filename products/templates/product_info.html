@@ -13,14 +13,13 @@
 				</h4>
 
 				{% if product.gender == 'U' %}
-				<img class="gender-icon" src="{{ MEDIA_URL }}images/unisex.png" alt="">
+											<i class="fa fa-transgender fa-2x"></i>
                 {% elif product.gender == 'F'%}
-				<img class="gender-icon" src="{{ MEDIA_URL }}images/female.png" alt="">
+											<i class="fa fa-venus fa-2x"></i>
                  {% else %}
-				<img class="gender-icon" src="{{ MEDIA_URL }}images/male.png" alt="">
+											<i class="fa fa-mars fa-2x"></i>
 
                 {%endif%}
-
 			</div>
 		</div>
 
