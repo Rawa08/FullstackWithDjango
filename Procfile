@@ -1,0 +1,1 @@
+web: gunicorn myfragrance.wsgi:application
