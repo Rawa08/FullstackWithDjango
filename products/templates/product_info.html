@@ -2,59 +2,63 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags%}
 {% block content %}
+<div class="container">
 <div class="row m-2">
+<!------------------------>
+			<div class="col-12 col-md-6">
+			<form method="post" action="{% url 'add_product' product.id %}">
+				{% csrf_token %}
+				<div class="input-group mt-1">
 
-	<div class="col-md-3 col-sm-12">
-		<div class="card h-100">
-			<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
-			<div class="card-body">
-				<h4 class="card-title">
-					{{ product.name }}  
-				</h4>
-                <h4>{{ product.brand }}</h4>
-
-				{% if product.gender == 'U' %}
-											<i class="fa fa-transgender fa-2x"></i>
-                {% elif product.gender == 'F'%}
-											<i class="fa fa-venus fa-2x"></i>
-                 {% else %}
-											<i class="fa fa-mars fa-2x"></i>
-
-                {%endif%}
-			</div>
-		</div>
-
-	</div>
-		<div class="col-md-3 col-sm-12">
-
-			<div class=" h-100">
-				<p class="mt-2">{{product.description}}</p>
-				<h5>{{ product.price }} <small><i class="fa fa-euro"></i></small></h5>
-				<h6 class="d-inline">
-					{{ product.volume }} ml
-				</h6>
-				<form method="post" action="{% url 'add_product' product.id %}">
-					{% csrf_token %}
-					<div class="input-group mt-1">
-						
-						 <select name="quantity" class="form-control col-6" id="exampleFormControlSelect1" value="1">
+					<select name="quantity" class="form-control col-6" id="exampleFormControlSelect1" value="1">
        {% for i in select_qty_5 %}
        <option>{{ i }}</option>
 {% endfor %} 
 <option><p>Need more? adjust in cart. </p></option>                 
       
     
-    </select>
-                        
-                        
-                        <span class="input-group-btn">
+    </select> <span class="input-group-btn">
                             <button class="btn btn-success ml-1" type="submit">Add to cart <i class="fa fa-shopping-basket"></i> </button>
                         </span>
-					</div>
-				</form>
+				</div>
+			</form>
+            
+            </div>
+            
+            <div class="col-12 col-md-6 mt-2">
+            <h5>{{ product.volume }} ml -
+{{ product.price }} <small><i class="fa fa-euro"></i></small></h5></div>
+
+            </div>
+            <div class="row"> 
+	<div class="col-md-3 col-sm-12">
+		<div class="card h-100">
+			<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
+			<div class="card-body">
+				<h4 class="card-title">
+					{{ product.name }}
+				</h4>
+				<h4>{{ product.brand }}</h4>
+
+				{% if product.gender == 'U' %}
+				<i class="fa fa-transgender fa-2x"></i>
+				{% elif product.gender == 'F'%}
+				<i class="fa fa-venus fa-2x"></i>
+				{% else %}
+				<i class="fa fa-mars fa-2x"></i>
+
+				{%endif%}
 			</div>
 		</div>
-	
+
+	</div>
+	<div class="col-md-3 col-sm-12">
+
+		<div class=" h-100">
+			<p class="mt-2">{{product.description}}</p>
+					</div>
+	</div>
+
 
 	<div class="col-md-6 col-sm-12 mt-4">
 		<h4 class="mb-2">What others say about {{ product.name }} </h4>
@@ -85,7 +89,7 @@
 
 </div>
 
-
+</div>
 
 
 
