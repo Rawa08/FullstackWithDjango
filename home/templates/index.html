@@ -4,21 +4,23 @@
 
 		<div class="row">
 
-			<div class="col-lg-3">
+			<div class="col-12 col-lg-3">
 
-				<h3 class="my-4">Select by category</h3>
+				
 				<div class="list-group">
-                 <a href="{% url 'do_search_F'%}" class="list-group-item">For Her <i class="fa fa-venus fa-2x"></i></a> 
-    
-    
-					<a href="{% url 'do_search_M'%}"class="list-group-item">For Him <i class="fa fa-mars fa-2x"></i></a>
+                <div class="col-12">
+                <form action="{% url 'do_search'%}" method="get">
+                <input class="form-control mt-4 form-control-lg" type="text" name="do_search" placeholder="Find your fragrance">
+                <button type="search" class="mt-1 btn-block btn-sm btn-dark">Search</button>
+            </form></div>
+
+                 <a href="{% url 'do_search_F'%}" class="list-group-item mt-3">For Her <i class="fa fa-venus fa-2x"></i></a>
+                
+    <a href="{% url 'do_search_M'%}"class="list-group-item">For Him <i class="fa fa-mars fa-2x"></i></a>
+   
 					<a href="{% url 'do_search_U'%}"  class="list-group-item">Unisex <i class="fa fa-transgender fa-2x"></i></a>
                     <a href="/"  class="list-group-item">Show all</a>
-                    <form action="{% url 'do_search'%}" method="get">
-                <input class="form-control mt-4 form-control-lg" type="text" name="do_search" placeholder="find your fragrance">
-                <button type="search" class="mt-1 btn-sm btn-sm btn-dark">Search</button>
-            </form>
-
+                    
 				</div>
 
 			</div>
@@ -35,11 +37,11 @@
 										<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
 										<div class="card-body">
 											<h4 class="card-title">
-												<a href="#"><h6>{{ product.name }}</h6></a>
+												<h6>{{ product.name }}</h6>
+                                                <h6>{{ product.brand }}</h6>
 											</h4>
-
-											<h5>{{ product.price }}</h5>
-											<p class="card-text">{{ product.description|truncatewords:"2"  }}</p>
+											<p class="card-text m-1">{{ product.description|truncatewords:"4"  }}</p>
+                                            <h5>{{ product.price }}  <small><i class="fa fa-euro"></i></small></h5>
 										</div>
 										<div class="card-footer">
 											<h6 class="d-inline">

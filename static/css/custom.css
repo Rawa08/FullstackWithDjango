@@ -19,3 +19,15 @@
   height: 2.5rem;           
 
 }
+
+a {
+    color: rgb(1, 8, 14);
+    text-decoration: none;
+}
+
+a:hover 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}

@@ -15,17 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-
 from django.views import static
 from .settings import MEDIA_ROOT
-
-
 from home.views import home_page
 from search import urls as urls_search
 from comments import urls as urls_comments
 from accounts import urls as urls_accounts
 from cart import urls as urls_cart
 from checkout import urls as urls_checkout
+from contact import urls as urls_contact
 
 
 urlpatterns = [
@@ -36,5 +34,6 @@ urlpatterns = [
     url(r'^accounts/',include(urls_accounts)),
     url(r'^cart/', include(urls_cart)),
     url(r'^checkout/', include(urls_checkout)),
+    url(r'^contact/',include(urls_contact)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]

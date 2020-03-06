@@ -2,7 +2,6 @@ from django.shortcuts import render
 from products.models import Perfume
 
 
-
 # Create your views here.
 def home_page(request):
    
@@ -13,6 +12,4 @@ def home_page(request):
       
 
        
-
    
-    

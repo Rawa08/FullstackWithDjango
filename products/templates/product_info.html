@@ -9,8 +9,9 @@
 			<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
 			<div class="card-body">
 				<h4 class="card-title">
-					<h6>{{ product.name }} by {{ product.brand }}</h6>
+					{{ product.name }}  
 				</h4>
+                <h4>{{ product.brand }}</h4>
 
 				{% if product.gender == 'U' %}
 											<i class="fa fa-transgender fa-2x"></i>
@@ -28,15 +29,25 @@
 
 			<div class=" h-100">
 				<p class="mt-2">{{product.description}}</p>
-				<h5>{{ product.price }} EUR</h5>
+				<h5>{{ product.price }} <small><i class="fa fa-euro"></i></small></h5>
 				<h6 class="d-inline">
 					{{ product.volume }} ml
 				</h6>
 				<form method="post" action="{% url 'add_product' product.id %}">
 					{% csrf_token %}
 					<div class="input-group mt-1">
-						<input name="quantity" type="number" min="1" max="999" class="form-control col-6" placeholder="Quantity" value="1">
-						<span class="input-group-btn">
+						
+						 <select name="quantity" class="form-control col-6" id="exampleFormControlSelect1" value="1">
+       {% for i in select_qty_5 %}
+       <option>{{ i }}</option>
+{% endfor %} 
+<option><p>Need more? adjust in cart. </p></option>                 
+      
+    
+    </select>
+                        
+                        
+                        <span class="input-group-btn">
                             <button class="btn btn-success ml-1" type="submit">Add to cart <i class="fa fa-shopping-basket"></i> </button>
                         </span>
 					</div>
@@ -73,8 +84,6 @@
 	</div>
 
 </div>
-
-
 
 
 

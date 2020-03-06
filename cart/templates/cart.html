@@ -3,25 +3,36 @@
 {% load bootstrap_tags %}
 
 {% block content %}
+<hr>   
+<div class="row">
+<div class="d-sm-none d-md-block col-md-8"></div>
+
+  <div class="col-12 col-md-4 px-auto">
    
+    Total: {{ total }} <small><i class="fa fa-euro"></i></small>
+    <a href="{% url 'checkout' %}" class="btn btn-sm btn-success"
+			role="button"><i class="fa fa-shopping-basket"></i> Checkout</a></p></div></div>
+	
 
     <hr>
 <div class="row">
 
 	{% for item in cart_item %}
-	<div class="col-6 col-md-3 col-lg-2  my-2 anup">
     
+	<div class="col-6 col-md-3 col-lg-2 mb-2">
+   <a href="{% url 'post_detail' item.product.id %}" class="card-link"> 
 		<div class="card h-100">
         <h5 class="m-1">Qty: 
         {{item.quantity}}</h5>
 
 			<img class="card-img-top" src="{{ MEDIA_URL }}{{ item.product.image }}" alt="">
 			<div class="card-body">
-				<h5>
-					{{ item.product.name }}
-				</h5>
+			<h6 class="card-title">
+					{{ item.product.name }}  
+				</h6>
+                <h6>{{ item.product.brand }}</h6>
 
-				<h5>{{ item.product.price }}</h5>
+				<h5>{{ item.product.price }} <small><i class="fa fa-euro"></i></small></h5>
 				<small>{{ item.product.volume }}ml</small>
 									{% if product.gender == 'U' %}
 											<i class="fa fa-transgender fa-2x"></i>
@@ -32,16 +43,22 @@
 
                 {%endif%}
 </div>
-
+</a>
 				<div class="card-footer">
                 										
 					<form class="form-inline" method="post" action="{% url 'adjust' item.id %}">
 						{% csrf_token %}
 					
 							<div class="col-12">
-							
-								New Qty: <input name="quantity" type="number" min="0" max="999" class="form-control m-1" value="1">
-								<button type="submit" class="btn btn-sm btn-success">Amend <i class="fa fa-retweet"></i></button>
+	New Qty: 		 <select name="quantity" class="form-control m-1" id="exampleFormControlSelect1" value="1">
+       {% for i in select_qty_999 %}
+       <option>{{ i }}</option>
+{% endfor %}
+</select>
+    			
+								
+                                
+                                <button type="submit" class="btn btn-sm btn-success">Amend <i class="fa fa-retweet"></i></button>
 							</div>
 						
 						
@@ -49,21 +66,14 @@
 				</div>
 			</div>
 			<!---->
+
 		</div>
 
 		{% endfor %}
+        
 </div>
-<div class="row">
-<div class="col-md-9">
 
-</div>
-    <div class="col-sm-12 col-md-3 my-3">
-   
-    Total: {{ total }}
-    
-		<a href="{% url 'checkout' %}" class="btn btn-sm btn-success"
-			role="button"><i class="fa fa-shopping-basket"></i> Checkout</a></p></div>
-	</div>
+<hr>
 
 
 </div>
