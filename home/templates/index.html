@@ -13,19 +13,14 @@
                 <input class="form-control mt-4 form-control-lg" type="text" name="do_search" placeholder="Find your fragrance">
                 <button type="search" class="mt-1 btn-block btn-sm btn-dark">Search</button>
             </form>
-<div class="dropdown mt-1">
-  <button class="btn btn-dark dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-   By category
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a href="{% url 'do_search_F'%}" class="list-group-item mt-3">For Her <i class="fa fa-venus fa-2x"></i></a>
-    <a href="{% url 'do_search_M'%}"class="list-group-item">For Him <i class="fa fa-mars fa-2x"></i></a>
-    <a href="{% url 'do_search_U'%}"  class="list-group-item">Unisex <i class="fa fa-transgender fa-2x"></i></a>
+            <div class="container"><div class="row mt-3 m-auto">
+  <a href="{% url 'do_search_F'%}" class="btn-sm btn-dark col-5 m-1 ">For Her <i class="fa fa-venus fa-2x"></i></a>
+    <a href="{% url 'do_search_M'%}"class="btn-sm btn-dark col-5 m-1">For Him <i class="fa fa-mars fa-2x"></i></a>
+    
+    <a href="{% url 'do_search_U'%}"  class="btn-sm btn-dark col-5 m-1">Unisex <i class="fa fa-transgender fa-2x"></i></a>
   
-    <a href="/"  class="list-group-item">Show all</a>
-  </div>
-</div>
-                 
+    <a href="/"  class="btn-sm btn-dark col-5 m-1">Show all</a>
+                 </div></div>
                 
     
    
