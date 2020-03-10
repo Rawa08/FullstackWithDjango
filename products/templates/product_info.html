@@ -2,20 +2,16 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags%}
 {% block content %}
+<!--Outer Wraper-->
 <div class="container">
-	<div class="row m-2">
-		<!------------------------>
-
-		<div class="col-12 col-md-6 mt-2">
-		</div>
-
-	</div>
-	<div class="row">
-		<div class="col-md-3 col-sm-12">
-			<div class="card h-100">
-				<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
-				<div class="card-body">
-					<h4 class="card-title">
+<!--ProductInfo-->
+<div class="row mt-3">
+<!--/ProductCard-->
+		<div class="col-md-3 col-sm-12"><div class="card h-100">
+        <!--ProductImage-->
+        <img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
+        <div class="card-body">
+        <h4>
 						{{ product.name }}
 					</h4>
 					<h4>{{ product.brand }}</h4>
@@ -28,48 +24,35 @@
 					<i class="fa fa-mars fa-2x"></i>
 
 					{%endif%}
-				</div>
 
-				<div class="col-12">
-					<form method="post" action="{% url 'add_product' product.id %}">
+                    <form method="post" action="{% url 'add_product' product.id %}">
 						{% csrf_token %}
-						<div class="input-group mt-1">
-
-							<select name="quantity" class="form-control col-6" id="exampleFormControlSelect1" value="1">
-       {% for i in select_qty_5 %}
-       <option>{{ i }}</option>
-{% endfor %} 
-<option><p>Need more? adjust in cart. </p></option>                 
-      
-    
-    </select> <span class="input-group-btn">
-                            <button class="btn btn-success ml-1" type="submit">Add to cart <i class="fa fa-shopping-basket"></i> </button>
-                        </span>
+						<div class="input-group mt-1"><select name="quantity" class="form-control col-6" id="exampleFormControlSelect1" value="1">{% for i in select_qty_5 %}
+            <option>{{ i }}</option>
+        {% endfor %} 
+                <option>Need more? adjust in cart. </option></select> 
+                <span class="input-group-btn">
+                <button class="btn btn-success ml-1" type="submit">Add to cart <i class="fa fa-shopping-basket"></i> </button>
+                </span>
 						</div>
 					</form>
-
-				<div class="col-12 mt-1">
-                 <h5>{{ product.volume }} ml - {{ product.price }} <small><i class="fa fa-euro"></i></small></h5></div>
-			</div>
-</div>
-		</div>
-		<div class="col-md-3 col-sm-12">
-
-			<div class=" h-100">
+                    <h5>{{ product.volume }} ml - {{ product.price }} <small><i class="fa fa-euro"></i></small></h5>
+        </div>
+        
+			</div></div>
+            <!--/ProductCard-->
+            <!--ProductDescription-->
+            <div class="col-md-3 col-sm-12">
+            <div class=" h-100">
 				<p class="mt-2">{{product.description}}</p>
-			</div>
-		</div>
-
-
-
-
-
-
-
-		<div class="col-md-6 col-sm-12 mt-4">
-			<h5 class="mb-2">What others say about {{ product.name }} </h5>
+			</div></div>
+            <!--/ProductDescription-->
+            <!--ProductComments-->
+             <div class="col-md-6 col-sm-12">
+             
+             <h5 class="mb-2">What others say about {{ product.name }} </h5>
 			{%for comment in comments %}
-
+<hr>
 			<h6 class="mt-1"><i class="fa fa-pull-left fa-user"></i> By: {{ comment.name }}</h6>
 			<p>Review: {{ comment.Comment}}</p>
 			<span class=" text-muted font-weight-normal">
@@ -77,26 +60,24 @@
             </span>
 			<hr>
 			{% endfor %}
-		</div>
+             </div>
+              <!--/ProductComments-->
+            </div><!--/ProductInfo-->
 
-	</div>
-
+	<!--ReviewBox-->
 	<div class="row m-3">
 		<div class="col-lg-12 col-md-12">
 			<h3 id="show"> Write a review <i class="fa fa-edit"></i> </h3>
 			<div class="col-12 review-box">
 				<form method="post">
-					{{ comment_form | as_bootstrap}}
-					{% csrf_token %}
-					<button type="submit" class="btn btn-success btn-sm">Submit</button>
+					{{ comment_form | as_bootstrap}}{% csrf_token %}<button type="submit" class="btn btn-success btn-sm">Submit</button>
 				</form>
 			</div>
 		</div>
-
 	</div>
+    <!--/ReviewBox-->
 
 </div>
 
 
-
-{% endblock content %}
+{%endblock%}
