@@ -4,6 +4,7 @@ from products.models import Perfume
 
 
 class Customer(models.Model):
+    """Customer object"""
     first_name = models.CharField(max_length=20, blank=False)
     last_name = models.CharField(max_length=20, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
@@ -19,6 +20,7 @@ class Customer(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """Orderline object made with Customer and Perfume model combined"""
     order = models.ForeignKey(Customer, null=False)
     product = models.ForeignKey(Perfume, null=False)   
     quantity = models.IntegerField(blank=False)     

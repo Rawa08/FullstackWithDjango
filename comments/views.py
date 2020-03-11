@@ -4,9 +4,10 @@ from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
+#Credit for this code: https://djangocentral.com/creating-comments-system-with-django/
 
 def post_detail(request, pk):
-    select_qty_5 = range(1, 6)
+    
     template_name = 'product_info.html'
     
     product = get_object_or_404(Perfume, pk=pk)
@@ -27,7 +28,7 @@ def post_detail(request, pk):
     else:
         comment_form = CommentForm()
     
-    return render(request, template_name, {'select_qty_5':select_qty_5,
+    return render(request, template_name, {
         'product': product,
                                            'comments': comments,
                                            'new_comment': new_comment,

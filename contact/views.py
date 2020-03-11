@@ -7,12 +7,12 @@ import os
 
 # Create your views here.
 def get_contact_page(request):
-
+#render contact page
     return render(request, 'contact.html')
    
     
 
-
+#Send email thrue smtp 
 def send_email(request):
     subject = request.POST.get('name')
     message = request.POST.get('text')
@@ -24,8 +24,7 @@ def send_email(request):
             return HttpResponse('Invalid header found.')
         return render(request, 'contact_success.html')
     else:
-        # In reality we'd use a form class
-        # to get proper validation errors.
+      
         return HttpResponse('Make sure all fields are entered and valid.') 
 
 

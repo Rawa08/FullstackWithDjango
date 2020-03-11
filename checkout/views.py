@@ -16,6 +16,7 @@ stripe.api_key = os.environ.get("STRIPE_SECRET")
 
 @login_required()
 def checkout(request):
+    """Validate customer shipping-form and payment-form, save customers order as orderlineItem"""
     if request.method == "POST":
         order_form = CustomerShippingForm(request.POST)
         payment_form = CustomerPaymentForm(request.POST)

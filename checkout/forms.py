@@ -2,7 +2,7 @@ from django import forms
 from .models import Customer, OrderLineItem
 
 class CustomerPaymentForm(forms.Form):
-    """creditcard payment"""
+    """creditcard payment form"""
     MONTH_CHOICES = [(i,i)for i in range(1,12)]
     YEAR_CHOICES = [(i,i)for i in range(2020, 2040)]
 
@@ -13,6 +13,7 @@ class CustomerPaymentForm(forms.Form):
     stripe_id = forms.CharField(widget=forms.HiddenInput)
     
 class CustomerShippingForm(forms.ModelForm):
+    """Customer shipping information form"""
     class Meta:
         model = Customer
         fields = ('first_name', 'last_name', 'phone_number','street_address','postcode','county','country')

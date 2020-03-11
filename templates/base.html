@@ -11,7 +11,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Shop Homepage - Start Bootstrap Template</title>
+	
 	<link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
@@ -21,7 +21,8 @@
 	<!--My style and script-->
 	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
 	<script src="{% static 'js/my-script.js' %}"></script>
-
+    {% block page_title%}
+{% endblock page_title%}
 {% block stripe_js%}
 {% endblock stripe_js%}
 </head>
@@ -93,7 +94,7 @@
 	<!-- Footer -->
 	<footer class="py-5 bg-dark footer">
 		<div class="container">
-			<p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+			<p class="m-0 text-center text-white">Copyright &copy; Rawa Aref 2020</p>
 		</div>
 		<!-- /.container -->
 	</footer>

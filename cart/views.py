@@ -4,11 +4,11 @@ from django.shortcuts import render, redirect, reverse
 
 def my_cart(request):
     """
-    render cart page, give abilty to user to choose up to 999 pices of an item or remove it from cart
+    render cart page
     """
     cart_template = 'cart.html'
-    select_qty_999 = range(0,1000)
-    return render(request, cart_template, {'select_qty_999':select_qty_999})
+    
+    return render(request, cart_template)
 
 
 def add_product(request, id):

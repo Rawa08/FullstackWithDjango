@@ -20,3 +20,10 @@ def cart_content(request):
         cart_item.append({'id': id, 'quantity': quantity, 'product': product})
     
     return {'cart_item': cart_item, 'total': total, 'product_count': product_count}
+
+def select_qty(request):
+  #let user to choose up to 999 pices of a product"""
+    select_qty_999 = range(0,1000)
+#let user to choose up to 5 pices of a product"""
+    select_qty_5 = range(1, 6)
+    return {'select_qty_999':select_qty_999, 'select_qty_5':select_qty_5}

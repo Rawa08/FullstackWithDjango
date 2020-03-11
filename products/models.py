@@ -3,6 +3,9 @@ from django.db import models
 # Create your models here.
 
 class Perfume(models.Model):
+    """
+    Product model specified to a perfume model
+    """
     genderChoice = (
         ('unisex','unisex'), ('male', 'male'), ('female', 'female'))
     volumeChoice = (('25',25), ('30',30),('40', 40),('50', 50), ('65', 65),('70', 70), ('90',90), 

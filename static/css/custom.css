@@ -1,6 +1,6 @@
-    
+ 
 
-}
+/* fixing footer position */
 .m-container{
     position: relative;
     min-height: 100vh;
@@ -12,7 +12,7 @@
   height: 2.5rem;           
 
 }
-
+/* removes default anchor styling */
 a {
     color: rgb(1, 8, 14);
     text-decoration: none;
@@ -25,6 +25,7 @@ a:hover
      cursor:pointer;  
 }
 
+/* remove word overflow in description box */
 .overflow-control{
     overflow: hidden;
     white-space: nowrap;
