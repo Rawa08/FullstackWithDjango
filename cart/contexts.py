@@ -3,6 +3,9 @@ from products.models import Perfume
 
 
 def cart_content(request):
+    """
+    retriving cart item from session, make it avilable to render on other pages
+    """
   
     cart = request.session.get('cart', {})
 

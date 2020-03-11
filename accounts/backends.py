@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 
-
+# Make User able to login with emailaddress instead of username
 class EmailAuth:
     def authenticate(self, username=None, password=None):
         try:

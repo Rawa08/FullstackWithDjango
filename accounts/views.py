@@ -14,10 +14,13 @@ def logout(request):
     return redirect(reverse('home_page'))
 
 def login(request):
+    """
+    Log in User and redirect to the home page
+    """
     if request.user.is_authenticated:
         return redirect(reverse('home_page'))
 
-  #login User and return login page
+ 
     if request.method == "POST":
         login_form = UserLoginForm(request.POST)
 
@@ -38,6 +41,10 @@ def login(request):
 
 
 def user_registration(request):
+    """
+    Registration of a new user
+    """
+    
     if request.user.is_authenticated:
         return redirect(reverse('home_page'))
 

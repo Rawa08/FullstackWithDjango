@@ -2,18 +2,28 @@
 {% load bootstrap_tags %}
 {% block content %}
 <div class="container m-4">
-<div class="row">
-<div class="col-12">
-<form class="form-group" method="POST">
-{% csrf_token %}
-{{login_form|as_bootstrap }}
-<button class="btn btn-success btn-sm" type="submit"><i class="fa fa-sign-in"></i> Login</button>
-</form></div></div>
-<div class="row">
-<p><a href="{% url 'password_reset' %}">Reset your password here</a></p>
+	<div class="row">
+		<div class="col-12">
+			<!--Login Form-->
+			<form class="form-group" method="POST">
+				{% csrf_token %}
+				{{login_form|as_bootstrap }}
+				<button class="btn btn-success btn-sm" type="submit"><i class="fa fa-sign-in"></i> Login</button>
+			</form>
+			<!--/Login Form-->
+		</div>
+	</div>
+	<div class="row">
+		<!--Password Rest Button-->
+		<p><a href="{% url 'password_reset' %}">Reset your password here</a></p>
+		<!--/Password Rest Button-->
+	</div>
+	<div class="row">
+		<!--New customer register link-->
+        <a class="nav-link btn btn-success btn-lg" href="{% url 'register' %}">New Customer?</a>
+		<!--/New customer register link-->
+	</div>
 </div>
-<div class="row"><a class="nav-link btn btn-success btn-lg" href="{% url 'register' %}">New Customer?</a>
-</div></div>
 
 
 {% endblock %}
