@@ -59,15 +59,15 @@
 					{% csrf_token %}
 					<div class="col-12">
 						<h5 class="m-1">Qty:
-						{{item.quantity}}</h5> <select name="quantity" class="form-control m-1" id="exampleFormControlSelect1" value="1">
+						{{item.quantity}}</h5> </div>
+                        <select name="quantity" class="form-control m-auto" id="exampleFormControlSelect1" >
        {% for i in select_qty_999 %}
        <option>{{ i }}</option>
-{% endfor %}
-</select><button type="submit" class="btn btn-sm btn-success">Amend <i class="fa fa-retweet"></i></button>
-					</div>
+{% endfor %}</select></div>
+<div class="btn-group m-auto" role="group" aria-label="Basic example">
+<button type="submit" class="btn btn-sm btn-success m-1">Amend</button>
+<a href="{% url 'delete' item.id %}" class="btn btn-sm btn-success m-1">Delete</a>
 
-
-				</form>
                 
 			</div>
 

@@ -23,7 +23,7 @@ def cart_content(request):
 
 def select_qty(request):
   #let user to choose up to 999 pices of a product"""
-    select_qty_999 = range(0,1000)
+    select_qty_999 = range(1,1000)
 #let user to choose up to 5 pices of a product"""
     select_qty_5 = range(1, 6)
     return {'select_qty_999':select_qty_999, 'select_qty_5':select_qty_5}

@@ -1,6 +1,9 @@
 {% extends 'index.html' %}
 {% load static from staticfiles %}
 {% load bootstrap_tags%}
+{% block page_title%}
+<title>MyFragrance | {{ product.name }} </title>
+{% endblock page_title%}
 {% block content %}
 <!--Outer Wraper-->
 <div class="container">

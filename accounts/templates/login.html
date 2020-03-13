@@ -12,20 +12,23 @@
 				{% csrf_token %}
 				{{login_form|as_bootstrap }}
 				<button class="btn btn-success btn-sm" type="submit"><i class="fa fa-sign-in"></i> Login</button>
+                <a class="btn btn-success btn-sm" href="{% url 'password_reset' %}">Forgot password <i class="fa fa-unlock-alt"></i> </a>
+        
 			</form>
 			<!--/Login Form-->
 		</div>
 	</div>
 	<div class="row">
-		<!--Password Rest Button-->
-		<p><a class="btn btn-success btn-sm" href="{% url 'password_reset' %}">Reset your password here  <i class="fa fa-unlock-alt"></i> </a></p>
+		<!--Password Rest Button--><div class="col-12">
+
+		
 		<!--/Password Rest Button-->
-	</div>
-	<div class="row">
-		<!--New customer register link-->
-        <a class="nav-link btn btn-success btn-lg" href="{% url 'register' %}">New Customer?</a>
+	</div></div>
+	<div class="row"><div class="col-12">
+        <a class=" btn btn-success btn-block" href="{% url 'register' %}">New Customer?</a>
 		<!--/New customer register link-->
-	</div>
+	</div></div>
+		<!--New customer register link-->
 </div>
 
 
