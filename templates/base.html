@@ -39,6 +39,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand mr-auto" href="{% url 'home_page' %}">My Fragrance</a>
+      <a class="navbar-brand d-md-none" href="{% url 'my_cart' %}"><i class="fa fa-shopping-basket"></i> Cart {% if product_count > 0 %} <label class="badge badge-success">{{ product_count }}</label>{% endif %} </a>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">
@@ -75,7 +76,7 @@
 					</li>
                     {% endif %}
 				</ul>
-			</div><a class="navbar-brand d-md-none" href="{% url 'my_cart' %}"><i class="fa fa-shopping-basket"></i> Cart {% if product_count > 0 %} <label class="badge badge-success">{{ product_count }}</label>{% endif %} </a>
+			</div>
 		</div>
 	</nav>
     {% if messages %}
