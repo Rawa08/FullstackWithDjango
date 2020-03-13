@@ -3,13 +3,13 @@
 {% block content%}
 
 
-<div class="container m-3">
+<div class="container mt-4">
 <!--Contactform-->
 <form method="post" action="{% url 'send_email' %}">
 						{% csrf_token %}
   <div class="form-group">
     <label for="exampleFormControlInput1">Name</label>
-    <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+    <input type="text" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Your name">
   </div>
 
   <div class="form-group">
@@ -24,6 +24,7 @@
   </div>
   <button type="submit" class="btn btn-success">Send</button>
 </form>
+
 <!--/Contactform-->
 </div>
 

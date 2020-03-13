@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect, reverse
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib import messages
 import os
 
 
@@ -24,8 +25,9 @@ def send_email(request):
             return HttpResponse('Invalid header found.')
         return render(request, 'contact_success.html')
     else:
+        messages.error(request, "Please fill out all fields")
       
-        return HttpResponse('Make sure all fields are entered and valid.') 
+        return redirect(reverse('contact_page'))
 
 
 
