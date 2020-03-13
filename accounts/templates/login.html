@@ -4,12 +4,13 @@
 <title>MyFragrance | Login </title>
 {% endblock page_title%}
 {% block content %}
-<div class="container m-4">
+<div class="container mt-4">
 	<div class="row">
 		<div class="col-12">
 			<!--Login Form-->
 			<form class="form-group" method="POST">
 				{% csrf_token %}
+                <i class="fa fa-user fa-3x"></i>
 				{{login_form|as_bootstrap }}
 				<button class="btn btn-success btn-sm" type="submit"><i class="fa fa-sign-in"></i> Login</button>
                 <a class="btn btn-success btn-sm" href="{% url 'password_reset' %}">Forgot password <i class="fa fa-unlock-alt"></i> </a>

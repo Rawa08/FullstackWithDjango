@@ -10,6 +10,7 @@
 <div class="col-8 m-auto"> 
 <!--New customer register Form-->
 <form method="POST"> 
+<i class="fa fa-user fa-3x"></i>
 {{registration_form|as_bootstrap}}
 {% csrf_token %}
 <button class="btn btn-success" type="submit">Register</button>
