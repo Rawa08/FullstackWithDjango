@@ -39,6 +39,16 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand mr-auto" href="{% url 'home_page' %}">My Fragrance</a>
+
+  <a href="{% url 'do_search_F'%}" class="btn-sm btn btn-dark ml-5 d-none d-md-block">For Her
+				<i class="fa fa-venus fa-2x"></i></a>
+			<a href="{% url 'do_search_M'%}" class=" btn-sm btn btn-dark d-none d-md-block">For Him
+				<i class="fa fa-mars fa-2x"></i></a>
+
+			<a href="{% url 'do_search_U'%}" class="btn-sm btn btn-dark d-none d-md-block">Unisex
+				<i class="fa fa-transgender fa-2x"></i></a>
+			<a href="/" class="btn-sm btn btn-dark d-none d-md-block">Show all</a>
+
       <a class="navbar-brand d-md-none" href="{% url 'my_cart' %}"><i class="fa fa-shopping-basket"></i> Cart {% if product_count > 0 %} <label class="badge badge-success">{{ product_count }}</label>{% endif %} </a>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
@@ -76,6 +86,7 @@
 					</li>
                     {% endif %}
 				</ul>
+              
 			</div>
 		</div>
 	</nav>
