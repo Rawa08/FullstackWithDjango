@@ -18,7 +18,7 @@
 
 			Total: {{ total }} <small><i class="fa fa-euro"></i></small>
 			<a href="{% url 'checkout' %}" class="btn btn-sm btn-success"
-				role="button"><i class="fa fa-shopping-basket"></i> Checkout</a></p>
+				role="button"><i class="fa fa-shopping-basket"></i> Checkout</a>
 		</div>
 		<!--/Checkout-button-->
 	</div>
@@ -65,7 +65,7 @@
        <option>{{ i }}</option>
 {% endfor %}</select></div>
 <div class="btn-group m-auto" role="group" aria-label="Basic example">
-<button type="submit" class="btn btn-sm btn-success m-1">Change</button>
+<button type="submit" class="btn btn-sm btn-success m-1">Change</button></form>
 <a href="{% url 'delete' item.id %}" class="btn btn-sm btn-success m-1">Delete</a>
 
                 
