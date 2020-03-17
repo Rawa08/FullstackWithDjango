@@ -1,8 +1,8 @@
 from django.db import models
 from products.models import Perfume
 
-# Create your models here.
-#Credit for this code: https://djangocentral.com/creating-comments-system-with-django/
+
+#Credit for this model: https://djangocentral.com/creating-comments-system-with-django/
 class Comment(models.Model):
     
     scoreChoice=(('1',1),('2',2),('3',3),('4',4),('5',5),('0',0))

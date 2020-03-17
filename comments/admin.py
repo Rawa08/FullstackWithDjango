@@ -4,6 +4,7 @@ from .models import Comment
 
 admin.site.register(Comment)
 
+#Credit for this model: https://djangocentral.com/creating-comments-system-with-django/
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'text', 'post', 'created_on', 'score', 'active')
     list_filter = ('active', 'created_on')
