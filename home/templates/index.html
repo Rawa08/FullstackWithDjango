@@ -24,7 +24,7 @@
 			</form>
 			<!--/search-box-->
 
-			<!--category buttons-->
+			<!--category buttons-mobile device-only-->
 			<div class="row d-md-none">
 				<a href="{% url 'do_search_F'%}" class="btn-sm btn btn-dark col-5 mx-auto col-md-2 m-1 ">For Her
 					<i class="fa fa-venus fa-2x"></i></a>
@@ -58,15 +58,10 @@
 						{% for product in perfumes reversed %}
 						<div class="carousel-item">
 							<h1>News</h1><a href="{% url 'post_detail' product.id %}" class="card-link">
-								<div class="container">
-									<div class="row">
-										<a href="{% url 'post_detail' product.id %}" class="card-link">
-											<div class="col-sm-8 col-md-3"><img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
-	</div>
-
-												<div class="col-9">
-													<div class="d-block mt-auto">
-														<h6> {{ product.name }}</h6>
+								
+										
+										<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
+	<h6> {{ product.name }}</h6>
 														<h6>{{ product.brand }}</h6>
 														{% if product.gender == 'unisex' %}
 														<i class="fa fa-transgender fa-2x"></i>
@@ -76,17 +71,17 @@
 														<i class="fa fa-mars fa-2x"></i>
 
 														{%endif%}
-													</div>
+													
 													<span class="d-none d-md-block mt-3">	{{product.description | truncatewords:'20'}}</span>
-												</div>
+												
 
 
 
-											</div></a>
+											
 									</div>
-
+</a>
 								</div>
-							</a>
+							
 							<!--carousel-Item-->
 							{% endfor %}
 
