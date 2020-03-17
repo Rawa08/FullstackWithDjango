@@ -15,27 +15,27 @@ This project is the last milestone project of the Full Web developer Diploma cou
 3. Register an account
 4. Pay with:  
  CreditCard number: 4242 4242 4242 4242  
- CVV: 3 digits   
+ CVV: Any 3 digits   
  Year & Month: Any month in the future   
  Warning: Don't use a real CreditCard   
 
  # UX
  
-The purpose of this website is to provide customers with new and exclusive perfumes.   
+The purpose of this website is to provide customers with new and exclusive fragrance.   
 Customer have ability to filter out the products depending on gender, name, brand, see the latest arrivals , write a review and see what others have written about the product.
 
-Site Owner can upload new products through the admin page and find completed orders. 
-Site owner have to aprove the reviews in order to be published.
+Site owner can upload new products through the admin page and find completed orders. 
+Site owner have to approve the reviews in order to be published.
 
 # Features
-User are able to search for a perfume, filter out products, add products to a cart and change the amount.   
+User are able to search for a fragrance, filter out products, add products to a cart and change the quantity.   
 In order to complete the purches the user have to register an account and pay with a creditcard.  
 User can choose a product to write a review about.   
 User can contact the site owner thru the contact page.
 
 ### Features Left to Implement:
 I want to give  user the ability to choose between several volume of a product on the product page, 
-and the site Owner can add several volume with its associated price for a perfume.
+and the site owner can add several volume with its associated price for a fragrance.
 
 Give Customer ability to order products without a registred account.
 
@@ -88,13 +88,13 @@ The deployment on Heroku was made directly from Github.
 # Credits
 
 ## Media
- he photos used in this site were obtained from each products official website  
+ The photos used in this website were obtained from each products official website  
 
-I used those codes i learned from codeinstitute.net's Walkthrough projects on the fullstack module
+I used the codes I learned from codeinstitute.net's walkthrough projects on the fullstack module
 https://github.com/Code-Institute-Solutions/AuthenticationAndAuthorisation  
 https://github.com/Code-Institute-Solutions/BlogAllAboutIt  
 
-In order to create the review function i  got inspired by https://djangocentral.com/creating-comments-system-with-django/
+In order to create the review function I got inspired by https://djangocentral.com/creating-comments-system-with-django/
 and used some of their codes.
 
 This website is made with template from https://startbootstrap.com  
