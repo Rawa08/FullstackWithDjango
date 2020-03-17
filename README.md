@@ -6,7 +6,7 @@
 
 # My Fragrance
 Online Perfume Shop  
-This project is the last milestone project of the Full Web developer Diploma course at CodeInstitute.net
+This project is the last milestone project of the Fullstack Web developer Diploma course at CodeInstitute.net
 
 ## Feel free to test my app 
 [Click Here](https://myfragrance.herokuapp.com/)
