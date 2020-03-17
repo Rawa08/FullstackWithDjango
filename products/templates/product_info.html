@@ -56,7 +56,7 @@
 		<!--ProductComments-->
 		<div class="col-md-6 col-sm-12">
 
-			<h5 class="mb-2">What others say about {{ product.name }} </h5>
+			<h5 class="mb-2">REVIEWS <i class="fa fa-edit"></i> </h5>
 			{%for comment in comments %}
 			<hr>
 			<h6 class="mt-1"><i class="fa fa-pull-left fa-user"></i> By: {{ comment.name }}</h6>
@@ -79,7 +79,7 @@
           Your comment is awaiting moderation
         </div>
         {% else %}
-			<h3 id="show"> Write a review <i class="fa fa-edit"></i> </h3>
+			<h3 id="show"> Write a review <i class="fa fa-pencil"></i> </h3>
 			<div class="col-12 review-box">
 				<form method="post">
 					{{ comment_form | as_bootstrap}}{% csrf_token %}<button type="submit" class="btn btn-success btn-sm">Submit</button>

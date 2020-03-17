@@ -44,14 +44,15 @@
 
 
 
-	<!--News-Box-->
+	<!--New Product-Box-->
 	<div class="row">
 		<div class="col-12">
 
 			<div id="carouselExampleIndicators" class="carousel slide my-2" data-ride="carousel">
 				<div class="carousel-inner col-12" role="listbox">
+  
 					<div class="carousel-item active">
-							<h1>News</h1>
+						
 
 							
 								<div class="container">
@@ -60,7 +61,8 @@
 											<img class="" src="https://myfragrance.s3.eu-north-1.amazonaws.com/media/images/latest.jpg">
                                         </div>
 											<div class="col-8 col-md-4 d-none d-md-block">
-												<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis doloremque, quaerat assumenda suscipit est necessitatibus ea, adipisci non illo omnis repellendus, quia earum sit obcaecati dolor sapiente. Accusantium, rem.</p>
+												<h1 class="text-center mt-3"> Buy 3+ Items Free Shipping Worldwide </h1>
+                                               
 											</div>
 
 
@@ -71,13 +73,10 @@
 							
 
 						</div>
-                    
-                    
-                   <!--här-->
 
 						{% for product in perfumes reversed %}
 						<div class="carousel-item">
-							<h1>News</h1>
+							
 
 							<a href="{% url 'post_detail' product.id %}" class="card-link">
 								<div class="container">
@@ -100,6 +99,7 @@
 
 
 
+         
 
 										</div>
 									</div>
@@ -114,15 +114,16 @@
 
 
 				</div>
+                
 			</div>
 
 		</div>
 
-	</div>
+	</div><!--/New-Product-BOX-->
 
-	<!--Product-area-->
+	
 
-	<div class="row mt-4">
+	<div class="row mt-4"><!--Product-area-->
 		{% for product in perfumes %}
 		<div class="col-6 col-md-3 col-lg-3 mb-4 ">
 
@@ -175,8 +176,8 @@
 
 		{% endfor %}
 
-	</div>
-	<!--/Product-area-->
+	</div><!--/Product-area-->
+	
 
 
 

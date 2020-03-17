@@ -58,14 +58,14 @@
 				<form class="form-inline" method="post" action="{% url 'adjust' item.id %}">
 					{% csrf_token %}
 					<div class="col-12">
-						<h5 class="m-1">Qty:
+						<h5 class="m-1">Qty in Cart:
 						{{item.quantity}}</h5> </div>
-                        <select name="quantity" class="form-control m-auto" id="exampleFormControlSelect1" >
+                        <select name="quantity" class="form-control m-auto" id="exampleFormControlSelect1">
        {% for i in select_qty_999 %}
        <option>{{ i }}</option>
 {% endfor %}</select></div>
 <div class="btn-group m-auto" role="group" aria-label="Basic example">
-<button type="submit" class="btn btn-sm btn-success m-1">Amend</button>
+<button type="submit" class="btn btn-sm btn-success m-1">Change</button>
 <a href="{% url 'delete' item.id %}" class="btn btn-sm btn-success m-1">Delete</a>
 
                 
