@@ -12,9 +12,7 @@
 			<form action="{% url 'do_search'%}" method="get">
 
 				<div class="input-group">
-					<div class="input-group-prepend">
 
-					</div>
 					<input type="text" class="form-control" name="do_search" placeholder="Find your fragrance" aria-label="Input group example" aria-describedby="btnGroupAddon">
 					<div class="input-group-append">
 
@@ -41,137 +39,145 @@
 
 		<!--/category buttons-->
 
-
-
-
-
-
-		<!--News-Box-->
-		<div class="row">
-			<div class="col-12">
-
-				<div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-					<div class="carousel-inner col-12" role="listbox">
-						<div class="carousel-item active">
-							<div class="container">
-										<div class="row">
-											<div class="col-md-4 col-8">
-												<img class="" src="https://myfragrance.s3.eu-north-1.amazonaws.com/media/images/latest.jpg">
-                                </div>
-												<div class="col-md-8 col-4">
-												</div>
-
-
-
-
-											</div>
-										</div>
-                            
-                    
-							</div>
-							{% for product in perfumes reversed %}
-							<div class="carousel-item">
-								<h1>News</h1>
-
-								<a href="{% url 'post_detail' product.id %}" class="card-link">
-									<div class="container">
-										<div class="row">
-											<div class="col-md-4 col-8">
-												<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
-                                </div>
-												<div class="col-md-8 col-4">
-													<h6 class="mt-5"> {{ product.name }}</h6>
-													<h6>{{ product.brand }}</h6>
-													{% if product.gender == 'unisex' %}
-													<i class="fa fa-transgender fa-2x"></i>
-													{% elif product.gender == 'female'%}
-													<i class="fa fa-venus fa-2x"></i>
-													{% else %}
-													<i class="fa fa-mars fa-2x"></i>{%endif%}
-
-													<span class="d-none d-md-block mt-3">	{{product.description | truncatewords:'20'}}</span>
-												</div>
-
-
-
-
-											</div>
-										</div>
-								</a>
-							</div>
-
-							<!--carousel-Item-->
-							{% endfor %}
-
-						</div>
-
-
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-
-		<!--Product-area-->
-
-		<div class="row mt-4">
-			{% for product in perfumes %}
-			<div class="col-6 col-md-3 col-lg-3 mb-4 ">
-
-				<div class="card h-100 anup">
-					<a href="{% url 'post_detail' product.id %}" class="card-link">
-						<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
-						<div class="card-body anup">
-							<h4 class="card-title">
-								<h6 class="overflow-control">{{ product.name }}</h6>
-								<h6 class="overflow-control">{{ product.brand }}</h6>
-							</h4>
-							<p class="card-text m-1 overflow-control">
-								{{ product.description|truncatewords:"4"  }}
-							</p>
-							<h5>{{ product.price }} <small><i class="fa fa-euro"></i></small></h5>
-						</div>
-						<div class="card-footer anup">
-							<h6 class="d-inline">
-								{{ product.volume }}ml
-							</h6>
-
-							{% if product.gender == 'unisex' %}
-							<i class="fa fa-transgender fa-2x"></i>
-							{% elif product.gender == 'female'%}
-							<i class="fa fa-venus fa-2x"></i>
-							{% else %}
-							<i class="fa fa-mars fa-2x"></i>
-
-							{%endif%}
-
-						</div>
-					</a>
-					<div class="card-body">
-						<form method="post" action="{% url 'add_product' product.id %}">
-							{% csrf_token %}
-							<div class="input-group mt-1">
-								<input name="quantity" type="number" min="1" max="999" class="form-control col-2 d-none" placeholder="Quantity" value="1">
-								<span class="input-group-btn">
-                            <button class="btn btn-success ml-1" type="submit">Add to cart <i class="fa fa-shopping-basket"></i> </button>
-                        </span>
-							</div>
-						</form>
-					</div>
-
-				</div>
-
-			</div>
-
-
-			{% endfor %}
-
-		</div>
-		<!--/Product-area-->
 	</div>
 
-</div>
-<!-- /.row -->
-</div>
-{% endblock %}
+
+
+
+	<!--News-Box-->
+	<div class="row">
+		<div class="col-12">
+
+			<div id="carouselExampleIndicators" class="carousel slide my-2" data-ride="carousel">
+				<div class="carousel-inner col-12" role="listbox">
+					<div class="carousel-item active">
+							<h1>News</h1>
+
+							
+								<div class="container">
+									<div class="row">
+										<div class="col-md-8 col-4">
+											<img class="" src="https://myfragrance.s3.eu-north-1.amazonaws.com/media/images/latest.jpg">
+                                        </div>
+											<div class="col-8 col-md-4 d-none d-md-block">
+												<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae blanditiis doloremque, quaerat assumenda suscipit est necessitatibus ea, adipisci non illo omnis repellendus, quia earum sit obcaecati dolor sapiente. Accusantium, rem.</p>
+											</div>
+
+
+
+
+										</div>
+									</div>
+							
+
+						</div>
+                    
+                    
+                   <!--här-->
+
+						{% for product in perfumes reversed %}
+						<div class="carousel-item">
+							<h1>News</h1>
+
+							<a href="{% url 'post_detail' product.id %}" class="card-link">
+								<div class="container">
+									<div class="row">
+										<div class="col-md-4 col-8">
+											<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
+                                        </div>
+											<div class="col-md-8 col-4">
+												<h6 class="mt-5"> {{ product.name }}</h6>
+												<h6>{{ product.brand }}</h6>
+												{% if product.gender == 'unisex' %}
+												<i class="fa fa-transgender fa-2x"></i>
+												{% elif product.gender == 'female'%}
+												<i class="fa fa-venus fa-2x"></i>
+												{% else %}
+												<i class="fa fa-mars fa-2x"></i>{%endif%}
+
+												<span class="d-none d-md-block mt-3">	{{product.description | truncatewords:'20'}}</span>
+											</div>
+
+
+
+
+										</div>
+									</div>
+							</a>
+
+						</div>
+
+						<!--carousel-Item-->
+						{% endfor %}
+
+					</div>
+
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!--Product-area-->
+
+	<div class="row mt-4">
+		{% for product in perfumes %}
+		<div class="col-6 col-md-3 col-lg-3 mb-4 ">
+
+			<div class="card h-100 anup">
+				<a href="{% url 'post_detail' product.id %}" class="card-link">
+					<img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="">
+					<div class="card-body anup">
+
+						<h6 class="overflow-control">{{ product.name }}</h6>
+						<h6 class="overflow-control">{{ product.brand }}</h6>
+
+						<p class="card-text m-1 overflow-control">
+							{{ product.description|truncatewords:"4"  }}
+						</p>
+						<h5>{{ product.price }} <small><i class="fa fa-euro"></i></small></h5>
+					</div>
+					<div class="card-footer anup">
+						<h6 class="d-inline">
+							{{ product.volume }}ml
+						</h6>
+
+						{% if product.gender == 'unisex' %}
+						<i class="fa fa-transgender fa-2x"></i>
+						{% elif product.gender == 'female'%}
+						<i class="fa fa-venus fa-2x"></i>
+						{% else %}
+						<i class="fa fa-mars fa-2x"></i>
+
+						{%endif%}
+
+					</div>
+				</a>
+				<div class="card-body">
+					<form method="post" action="{% url 'add_product' product.id %}">
+						{% csrf_token %}
+						<div class="input-group mt-1">
+							<input name="quantity" type="number" min="1" max="999" class="form-control col-2 d-none" placeholder="Quantity" value="1">
+							<span class="input-group-btn">
+                             <button class="btn btn-success ml-1" type="submit">Add to cart <i class="fa fa-shopping-basket"></i> 
+                             </button>
+                             </span>
+						</div>
+					</form>
+				</div>
+
+			</div>
+
+		</div>
+
+
+		{% endfor %}
+
+	</div>
+	<!--/Product-area-->
+
+
+
+	{% endblock %}
