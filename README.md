@@ -1,12 +1,30 @@
-![Mobile and Ipad View](wireframes_mockups/ipadIphone.png?raw=true)
+![Mobile View](wireframes_mockups/mobile.png?raw=true)      
+![Tablet View](wireframes_mockups/ipad.png?raw=true)    
+![Desktop View](wireframes_mockups/desktop.png?raw=true)    
+
+
 [![Build Status](https://travis-ci.com/Rawa08/FullstackWithDjango.svg?branch=master)](https://travis-ci.com/Rawa08/FullstackWithDjango)
 
 
 
 
+## Live app  [HERE](https://myfragrance.herokuapp.com/)
+
+
 # My Fragrance
 Online Perfume Shop  
 This project is the last milestone project of the Fullstack Web developer Diploma course at CodeInstitute.net
+
+## Feel free to test my app 
+[Click Here](https://fullstackwithdjango.herokuapp.com/)
+1. Choose products
+2. Go to Checkout
+3. Register an account
+4. Pay with:  
+ CreditCard number: 4242 4242 4242 4242  
+ CVV: Any 3 digits   
+ Year & Month: Any month in the future   
+ Warning: Don't use a real CreditCard 
 
 
 
