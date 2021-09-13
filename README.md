@@ -7,7 +7,7 @@
 
 
 
-## Live app  [HERE](https://myfragrance.herokuapp.com/)
+## Live app  [HERE](https://fullstackwithdjango.herokuapp.com/)
 
 
 # My Fragrance
