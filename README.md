@@ -1,8 +1,8 @@
    
 <img src="wireframes_mockups/mobile.png" alt="Mobile View Image" width="15%" height="15%">    <img src="wireframes_mockups/ipad.png" alt="Mobile View Image" width="25%" height="25%"><img src="wireframes_mockups/desktop.png" alt="Mobile View Image" width="55%" height="55%">     
 
+[![Build Status](https://app.travis-ci.com/Rawa08/FullstackWithDjango.svg?branch=master)](https://app.travis-ci.com/Rawa08/FullstackWithDjango)
 
-[![Build Status](https://travis-ci.com/Rawa08/FullstackWithDjango.svg?branch=master)](https://travis-ci.com/Rawa08/FullstackWithDjango)
 
 
 
